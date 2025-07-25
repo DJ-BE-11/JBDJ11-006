@@ -39,7 +39,7 @@ public class CounterHandler implements Runnable  {
         //monitor는 여러 Thread가 동시에 접근할 수 없도록  접근을 제어해야 합니다.
         synchronized (monitor){
             try {
-                Thread.currentThread().wait();
+                monitor.wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

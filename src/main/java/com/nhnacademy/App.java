@@ -45,9 +45,10 @@ public class App
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {e.printStackTrace();}
-        threadA.notify();
-
-
+        synchronized (monitor) {
+            monitor.notify();
+        }
+        // 실행결과 monitor를 main이 점거하는 2초 동안은 start되었음에도 thread A가 작동하지 않는 모습을 볼 수 있다.
         //Main Thread가 threadA  종료될 때 까지 대기 합니다. Thread.yield를 사용 합니다.
         do {
             Thread.yield();
