@@ -23,6 +23,6 @@ public class App
         CounterThread counterThread = new CounterThread("my-thread", 10);
 
         //TODO#6 counterThread를 시작 합니다.
-        counterThread.run();
+        counterThread.start();
     }
 }
