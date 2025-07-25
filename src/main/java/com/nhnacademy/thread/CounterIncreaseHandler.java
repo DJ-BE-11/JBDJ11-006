@@ -34,14 +34,14 @@ public class CounterIncreaseHandler implements Runnable {
             try {
                 Thread.sleep(1000);
                 //TODO 2-3 sharedCounter의 count를 1증가 시키고 count값을 반환 합니다.
-                long count = 0l;
+                long count = sharedCounter.increaseAndGet();
 
                 log.debug("thread:{}, count:{}", Thread.currentThread().getName(), count);
             } catch (Exception e) {
                 log.debug("{} - interrupt!",Thread.currentThread().getName());
 
                 //TODO#2-4 현제 Thread에 interrupt()를 호출하여 interrput()를 발생 시킵 니다. 즉 현제 Thread의 interrupted 값이 -> true로 변경 됩니다. -> 즉 while 문을 종료하게 됩니다.
-                Thread.interrupted();
+                Thread.currentThread().interrupt();
             }
         }
     }
