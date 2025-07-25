@@ -42,7 +42,7 @@ public class SharedCounter {
             semaphore.acquire();
             return count;
         }catch (InterruptedException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
             semaphore.release();
         }
@@ -57,7 +57,7 @@ public class SharedCounter {
             count++;
             return count;
         }catch (InterruptedException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
             semaphore.release();
         }
