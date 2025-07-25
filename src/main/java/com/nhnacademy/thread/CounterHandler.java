@@ -23,7 +23,7 @@ public class CounterHandler implements Runnable {
 
     public CounterHandler(long countMaxSize) {
         //TODO#2 countMaxSize <=0 이면 IllegalArgumentException()이 발생 합니다.
-        if (countMaxSize < =0) throw new IllegalArgumentException();
+        if (countMaxSize <= 0) throw new IllegalArgumentException();
 
         this.countMaxSize = countMaxSize;
         this.count=0l;
@@ -43,7 +43,9 @@ public class CounterHandler implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.printf("thread:%s,count:%d\n",Threa.);
+            count++;
+            System.out.printf("thread:%s,count:%d\n",Thread.currentThread().getName(), count);
+
         }while (count<countMaxSize);
     }
 }
