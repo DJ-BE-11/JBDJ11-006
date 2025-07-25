@@ -32,7 +32,7 @@ public class SharedCounter {
 
     public long increaseAndGet(){
         //TODO#1-3 block 단위로 lock을 걸고 count = count + 1 증가시키고 count를 반환 합니다.
-        synchronized (count){
+        synchronized (this){
             count = count + 1;
             return count;
         }
@@ -40,7 +40,7 @@ public class SharedCounter {
 
     public long decreaseAndGet(){
         //TODO#1-4 count = count -1  부분 lock을 걸고, count를 반환 합니다.
-        synchronized (count) {
+        synchronized (this) {
             count = count - 1;
         }
         return count;
